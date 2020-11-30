@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Person Registration</title>
+</head>
+<body>
+  <header>
+    <h1>Person Registration</h1>
+    <p>
+        Fill in the desired data for each person to register.
+    </p>
+  </header>
+
+  <form novalidate>
+    <input id="name" placeholder="Name" autocomplete="name">
+    <input id="birth" type="date" name="begin" 
+    placeholder="dd-mm-yyyy">
+    <select id="gender" required>
+      <option value="">Select gender</option>
+      <option value="f">Female</option>
+      <option value="m">Male</option>
+    </select>
+    <button>Submit</button>
+  </form>
+
+  <div id="answer"></div>
+
+  <script src="person-registration.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+</head>
+<body>
+    <header>
+        <h1>Registration</h1>
+        <p>
+           Choose what you want to register: books or periodicals
+        </p>
+      </header>
+
+
+
+
+      <form novalidate>
+
+        <select id="select">
+          <option value="">Select what you want to register</option>
+          <option value="b">Book</option>
+          <option value="p">Periodical</option>
+        </select>
+
+        
+        <div id="book" hidden = 'true'>
+           <input id="isbn" placeholder="isbn" autocomplete="isbn">
+           <input id="edition" placeholder="edition" autocomplete="edition">
+           <input id="volumeBook" placeholder="volume" autocomplete="volume" >
+        </div>
+
+        <div id="equal" hidden = 'true'>
+           <input id="title" placeholder="title" autocomplete="title" >
+           <input id="subtitle" placeholder="subtitle" autocomplete="subtitle">
+           <input id="publishedAt" placeholder="publishedAt" autocomplete="publishedAt">
+           <select id="author"></select>
+        </div>
+
+        <div id="periodical" hidden = 'true'>
+          <input id="issn" placeholder="issn" autocomplete="issn">
+          <input id="volumePeriodical" placeholder="volume" autocomplete="volume">
+          <input id="issue" placeholder="issue" autocomplete="issue">
+        </div>
+        <button>Submit</button>
+        
+      </form>
+
+     <div id="answer"></div>
+
+
+      
+      <script src="registration.js" type="module"></script>
+</body>
+</html>
