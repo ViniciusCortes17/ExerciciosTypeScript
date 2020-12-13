@@ -26,9 +26,52 @@ const author = document.querySelector<HTMLSelectElement>('#author')!
 const answer = document.querySelector<HTMLDivElement>('#answer')!
 
 
+function refresh(){
+    window.location.reload()
+   }
+
+const capitalize = (text: string) => {
+    const words = text.split(' ')
+  
+    for (let i = 0; i < words.length; i++) {
+      words[i] =
+        words[i].substr(0, 1).toUpperCase() +
+        words[i].substr(1).toLowerCase()
+    }
+  
+    return words.join(' ')
+  }
+  
+  const trimAll = (text: string) => text.trim().replace(/\s+/g, ' ')
+  
+
+
 
 let personsLocalStorage: Array<Person> = JSON.parse(localStorage.getItem("persons") || '{}')
 let names = personsLocalStorage.map(p=> p.name) 
+
+let arrTitle: Array<Document> = JSON.parse(localStorage.getItem("books") || '{}')
+let titles = arrTitle.map(p=> p.title)
+
+
+
+
+console.log(arrTitle)
+let p = document.querySelector<HTMLParagraphElement>('#listtitle')
+const titleSorted = [...titles].sort()
+
+    if (!p) {
+      
+      for(let i = 0; i < titleSorted.length;i++){
+        p = document.createElement('p')
+        p.id = 'listtitle'
+        p.innerText = titleSorted[i]
+        document.body.append(p)
+      }
+    }
+
+    
+
 
 select.addEventListener('change',(e: Event) => {
    e.preventDefault() 
@@ -54,9 +97,6 @@ select.addEventListener('change',(e: Event) => {
   })
     
       
-
-       
-     
  
   const books: Book[] = []
   const periodicals: Periodical[] = []
@@ -68,6 +108,8 @@ select.addEventListener('change',(e: Event) => {
     var author1 = author.value.trim()
 
     var person1 = personsLocalStorage[parseInt(author1)]
+
+    title.value = capitalize(trimAll(title.value))
 
     if(select.value == 'b'){
  
@@ -129,6 +171,7 @@ select.addEventListener('change',(e: Event) => {
    books.push(book)
  
    localStorage.setItem('books', JSON.stringify(books))
+
  }
    catch (error: any) {
    answer.innerText = "Ocorreu algum erro."
@@ -137,6 +180,9 @@ select.addEventListener('change',(e: Event) => {
  
  if (books) {
   answer.innerText = `${title.value} Cadastrado com Sucesso!`
+ 
+    setTimeout(refresh,1500)
+
  }
 
     }else if(select.value == 'p')
@@ -200,6 +246,7 @@ try {
   periodicals.push(periodical)
 
   localStorage.setItem('periodicals', JSON.stringify(periodicals))
+
 }
   catch (error: any) {
   answer.innerText = "Ocorreu algum erro."
@@ -208,6 +255,9 @@ try {
 
 if (periodicals) {
  answer.innerText = `${issn.value} Cadastrado com Sucesso!`
+
+  setTimeout(refresh,1500)
+
 }
 
 })
