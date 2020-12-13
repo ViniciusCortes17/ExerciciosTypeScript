@@ -25,6 +25,8 @@ const filterName = (text: Person) => text.name.includes(filterPersons.value)
 //toUpperCase().includes(filterPersons.value) 
 //const namesF = names.filter(filterName)
 
+
+
 const persons: Person[] = []
 showPersons()
 name.focus()
@@ -36,7 +38,8 @@ const capitalize = (text: string) => {
     words[i] =
       words[i].substr(0, 1).toUpperCase() +
       words[i].substr(1).toLowerCase()
-  }
+  } 
+  
 
   return words.join(' ')
 }

@@ -26,6 +26,7 @@ const author = document.querySelector<HTMLSelectElement>('#author')!
 const answer = document.querySelector<HTMLDivElement>('#answer')!
 
 
+
 function refresh(){
     window.location.reload()
    }
